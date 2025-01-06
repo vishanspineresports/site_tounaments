@@ -1,0 +1,119 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+	*{ padding: 0; margin: 0; overflow-x: hidden; }
+	body { padding: 0; margin: 0; background: linear-gradient(360deg, #091b33, #00a9a9, #172459); color: #fff; font-family: 'Poppins' , sans-serif ; }
+	.header { display: flex; align-items: center; padding: 10px; background: #04365f; color: #fff; box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px; }
+	.header h2 { margin: 0px 0px 0px 10px; font-family: "Henny Penny", serif; color: e7e7e7; text-transform: capitalize; }
+    .header img { border-radius: 125px; width: 40px; height: 40px; }
+    .slider { position: relative; width: 95%; max-width: 800px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+    .slider img { width: 100%; display: none; transition: opacity 0.5s ease-in-out; }
+    .slider img.active { display: block; opacity: 1; }
+    .nav { display: none; }
+    .slider-father { display: flex; align-items: center; justify-content: center; margin: 10px; }
+    .download > a > button { padding: 20px; text-decoration: none; font-size: 24px; text-transform: uppercase; background: linear-gradient(45deg, #091b33, #00a9a957); color: #fff; overflow: hidden; border: none; width: 200px; border-radius: 125px; }
+    .download { text-align: center; }
+    .customer-text { display: flex; align-items: center; gap: 10px; margin: 10px; }
+	.customer-text h3 { margin: 0px; }
+	.customer-text hr { flex-grow: 1; border: none; border-top: 2px solid #fff; }
+	.shot img { display: none; width: 100%; height: auto; }
+	.shot img.active { display: block; }
+	.phone { justify-content: center; align-items: center; display: flex;margin: 20px; background: #e5e5e5; padding: 25 10px 15px 10px; border-radius: 18px; }
+	.line { background: #000; height: 4px; width: 55%; border-radius: 25px; margin: 0px 0px 15px 40px; }
+	.dot { background: #000; height: 4px; width: 3%; border-radius: 25px; margin: 0px 0px 15px 40px; }
+	.phone-top { display: flex; }
+	.shot img { border-radius: 8px; }
+	#nextButton { height: 40px; border: none; width: 40px; background: #000; border-radius: 125px; margin: 20px 0px 0px 0px; }
+	.btn-class { display: flex; align-items: center; justify-content: center; }
+	.thumbnailimg { width: 94%; margin: 10px; border-radius: 12px; }
+    @media only screen and (max-width: 600px){
+    }
+    
+</style>
+<div class="header">
+	<img src="https://i.ibb.co/WzMFmdy/icon.jpg" class="image">
+	<h2>Sniper esport</h2>
+</div>
+<div class="slider-father">
+<div class="slider">
+	<img src="https://images.alphacoders.com/133/thumb-1920-1331442.jpeg" class="active">
+	<img src="https://dl.dir.freefiremobile.com/common/web_event/official2.ff.garena.all/202210/79ff7ef17a35b49c407968e6fe0b5b9f.jpg">
+	<img src="https://images7.alphacoders.com/107/1079489.jpg">
+	<div class="nav">
+		<button id="prev">❮</button>
+        <button id="next">❯</button>
+    </div>
+</div>
+</div>
+<div class="text" style="margin: 20px;">
+	<p>Free Fire Money App That Help You To Earn Money While Playing Free Fire with Your Gaming Skills....</p>
+</div>
+<div class="download">
+	<a href="sniperesports.apk" download><button>Download</button></a>
+</div>
+<div class="customer-text">
+	<h3>App Screen Shot</h3>
+	<hr>
+</div>
+<div class="phone">
+<div class="screen">
+<div class="phone-top">
+<div class="dot"></div>
+<div class="line"></div>
+</div>
+<div class="shot">
+    <img src="https://i.ibb.co/JBVqLfh/img1.jpg" class="active">
+    <img src="https://i.ibb.co/Pt2zqk7/img2.jpg">
+    <img src="https://i.ibb.co/DksYGDD/img3.jpg">
+    <img src="https://i.ibb.co/98Gwz0f/img4.jpg">
+</div>
+<div class="btn-class">
+<button id="nextButton"></button>
+</div>
+</div>
+</div>
+<div class="customer-text">
+	<h3>Play Tounaments </h3>
+	<hr>
+</div>
+<img src="https://news.codashop.com/in/wp-content/uploads/sites/7/2020/06/Free-Fire-Tournament-1.jpg" class="thumbnailimg">
+<script>
+	const images = document.querySelectorAll('.slider img');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+let currentIndex = 0;
+
+function showImage(index) {
+    images.forEach((img, i) => {
+        img.classList.remove('active');
+        if (i === index) {
+            img.classList.add('active');
+        }
+    });
+}
+
+function nextImage() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+}
+
+function prevImage() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+}
+
+nextButton.addEventListener('click', nextImage);
+prevButton.addEventListener('click', prevImage);
+
+setInterval(nextImage, 3000);
+
+document.getElementById('nextButton').addEventListener('click', function () {
+    const images = document.querySelectorAll('.shot img');
+    let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
+    images[activeIndex].classList.remove('active');
+    activeIndex = (activeIndex + 1) % images.length;
+    images[activeIndex].classList.add('active');
+});
+</script>
